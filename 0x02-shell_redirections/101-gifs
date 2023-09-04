@@ -1,5 +1,2 @@
 #!/bin/bash
-shopt -s globstar
-for file in **/*.gif; do
-  [[ -f $file ]] && echo "${file##*/}" | tr '[:upper:]' '[:lower:]' | cut -d. -f1
-done | sort
+find -type f -name "*.gif" | rev | cut -d "/" -f 1 | cut -d '.' -f 2- | rev sort -f
