@@ -1,4 +1,2 @@
 #!/bin/bash
-while IFS=':' read -r username x uid gid gecos home shell; do
-    echo "${username}:${home}"
-done < /etc/passwd | sort
+cut -d ':' -f 1,6 /etc/passwd | sort
